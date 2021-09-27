@@ -1,0 +1,146 @@
+
+$center: center;
+$flexBox: flex;
+$fonts: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+$columnWrap: column wrap;
+$defaultFontSize: 1.5em;
+$defaultLineHeight: 1.25em;
+$blueBackground: #000745 ;
+$yellowBackground: linear-gradient(90deg, rgb(163, 107, 3) 35%, rgb(255, 252, 102) 100%); ;
+$lightGreenText: #9a6c00;
+$darkRedText: #6c0000; 
+$day-mode: false;
+
+@debug darken(#6c0000, 20%); 
+  @debug lighten(#acff6d, 20%);
+
+@mixin fullWidth {
+  width: 100vw;
+  margin: 5px;
+}
+@mixin day-night($day-mode: true) {
+  @if $day-mode {
+  background: $yellowBackground;
+    color: $darkRedText; 
+  } @else {
+     background-color: $blackBackground;
+    color: $lightGreenText;
+  }
+}
+
+
+
+body{
+  background-color: $yellowBackground;
+  color: $darkRedText;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  @include day-night;
+}
+  .burger{
+  
+          width: 35px;
+          height: 5px;
+          background-color: #dfdfdf;
+          margin: 6px 0;
+        }
+        #burgerContainer2{
+          display: none;
+      }
+  #wrapper{
+    @include fullWidth;
+      display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  }
+  header{
+      height: 50px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include fullWidth;
+      border: 2px solid white;
+background-color: $blueBackground;
+color: $lightGreenText ;
+
+  }
+  .mainContent{
+      width: 400px;
+      position: absolute;
+      left: 170px;
+      top: 100px;
+      border: 2px solid black;
+      background-color: #71fffa;
+      &--swe {
+        @extend .mainContent;
+        display: none;
+      }
+  }
+  #notification{
+      position: absolute;
+      bottom: 0;
+      padding: 500px;
+  }
+  
+  #navbar ul{
+      list-style-type: none;
+  }
+  #navbar a {
+      text-decoration: none; 
+      font-weight: bold;
+  color: $lightGreenText;}
+  
+  
+  #navbar li{
+      margin-left: 20px;
+      float: left;
+      text-decoration: none;
+  }
+  #sidebar{
+      position: fixed;
+      display: block;
+      left: 0px;
+      height: 579px;
+      top: 50px;
+      padding: 17px;
+      background-color:  #dfdfdf ;
+      overflow-y: scroll;  
+       ul{
+      list-style-type: none;
+      padding: 0;
+  }  
+  a {
+      text-decoration: none; 
+      color: black;
+  }
+   li{
+      margin-bottom: 20px;
+  }
+  }
+  
+
+
+  .pageLink{
+      display: none;
+  }
+  footer{
+      position: absolute;
+      bottom: 0;
+  }
+  
+  
+  img{
+    width: 300px;
+}
+.current{
+display: block;
+}
+img{
+    display: none;
+}
